@@ -1,0 +1,30 @@
+﻿<UserControl x:Class="AcousticTransferMatrices.MaterialSelectionTree.Views.ViewA"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:AcousticTransferMatrices.MaterialSelectionTree.Views"
+             xmlns:locals="clr-namespace:AcousticTransferMatrices.MaterialSelectionTree.ViewModels"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:attatched="clr-namespace:AcousticTransferMatrices.Core.AttatchedProperties;assembly=AcousticTransferMatrices.Core"
+             xmlns:behavior="http://schemas.microsoft.com/xaml/behaviors"
+             xmlns:prism="http://prismlibrary.com/"
+             prism:ViewModelLocator.AutoWireViewModel="True" >
+    <StackPanel>
+        <TextBox x:Name="SearchText"></TextBox>
+        <TreeView Height="250" Width="300" 
+                  attatched:TreeViewSearch.SearchText="{Binding ElementName=SearchText,Path=Text}" 
+                  attatched:MouseDoubleClick.Command="{Binding AddItemCommand}" 
+                  ItemsSource="{Binding MaterialComponents}" >
+            <behavior:Interaction.Behaviors>
+                <attatched:BindableSelectedItemBehavior SelectedItem="{Binding SelectedItem, Mode=TwoWay}" />
+            </behavior:Interaction.Behaviors>
+            <TreeView.Resources>
+                <HierarchicalDataTemplate DataType="{x:Type locals:Group}" ItemsSource="{Binding Children}">
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="{Binding Name}" />
+                    </StackPanel>
+                </HierarchicalDataTemplate>
+            </TreeView.Resources>
+        </TreeView>
+    </StackPanel>
+</UserControl>

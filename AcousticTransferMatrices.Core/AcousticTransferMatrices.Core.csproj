@@ -1,0 +1,197 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{AF5DDE38-050D-44DD-AFDE-F3941DFF0FC5}</ProjectGuid>
+    <OutputType>library</OutputType>
+    <RootNamespace>AcousticTransferMatrices.Core</RootNamespace>
+    <AssemblyName>AcousticTransferMatrices.Core</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.Xaml.Behaviors, Version=1.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Xaml.Behaviors.Wpf.1.1.31\lib\net45\Microsoft.Xaml.Behaviors.dll</HintPath>
+    </Reference>
+    <Reference Include="OxyPlot, Version=2.0.0.0, Culture=neutral, PublicKeyToken=638079a8f0bd61e9, processorArchitecture=MSIL">
+      <HintPath>..\packages\OxyPlot.Core.2.0.0\lib\net45\OxyPlot.dll</HintPath>
+    </Reference>
+    <Reference Include="OxyPlot.Wpf, Version=2.0.0.0, Culture=neutral, PublicKeyToken=75e952ba404cdbb0, processorArchitecture=MSIL">
+      <HintPath>..\packages\OxyPlot.Wpf.2.0.0\lib\net45\OxyPlot.Wpf.dll</HintPath>
+    </Reference>
+    <Reference Include="Prism, Version=8.1.97.5141, Culture=neutral, PublicKeyToken=40ee6c3a2184dc59, processorArchitecture=MSIL">
+      <HintPath>..\packages\Prism.Core.8.1.97\lib\net47\Prism.dll</HintPath>
+    </Reference>
+    <Reference Include="ReachFramework" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Printing" />
+    <Reference Include="System.Reactive, Version=5.0.0.0, Culture=neutral, PublicKeyToken=94bc3704cddfc263, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Reactive.5.0.0\lib\net472\System.Reactive.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=4.0.4.1, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.4.5.3\lib\net461\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Threading.Tasks.Extensions, Version=4.2.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Threading.Tasks.Extensions.4.5.4\lib\net461\System.Threading.Tasks.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Windows" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Acoustics\AcosuticMatrixHelpers.cs" />
+    <Compile Include="Acoustics\Calculations\MainCalculation.cs" />
+    <Compile Include="Acoustics\Configurations\BoundaryConfiguration.cs" />
+    <Compile Include="Acoustics\Configurations\IBoundaryConfiguration.cs" />
+    <Compile Include="Acoustics\Configurations\ICalculationConfiguration.cs" />
+    <Compile Include="Acoustics\Configurations\IIntegrationConfiguration.cs" />
+    <Compile Include="Acoustics\Configurations\IntegrationConfiguration.cs" />
+    <Compile Include="Acoustics\Configurations\CalculationConfiguration.cs" />
+    <Compile Include="Acoustics\Configurations\TransmissionTypes.cs" />
+    <Compile Include="Acoustics\FrequencyValues.cs" />
+    <Compile Include="Acoustics\ILayerModel.cs" />
+    <Compile Include="Acoustics\LayerBaseClass.cs" />
+    <Compile Include="Acoustics\Calculations\LayerTransition.cs" />
+    <Compile Include="Acoustics\LayerModel.cs" />
+    <Compile Include="Acoustics\MatrixMaterials\Air.cs" />
+    <Compile Include="Acoustics\MatrixMaterials\DelaneyBazely.cs" />
+    <Compile Include="AttatchedProperties\BindableSelectedItemBehavior.cs" />
+    <Compile Include="AttatchedProperties\EnumItemsSource.cs" />
+    <Compile Include="AttatchedProperties\MouseDoubleClick.cs" />
+    <Compile Include="AttatchedProperties\TreeViewHelperClass.cs" />
+    <Compile Include="AttatchedProperties\TreeViewSearch.cs" />
+    <Compile Include="Attribute\PasswordBoxAssistant.cs" />
+    <Compile Include="Attribute\PropertyOrderAttibute.cs" />
+    <Compile Include="Attribute\ShowPropertyGrid.cs" />
+    <Compile Include="Attribute\TextBoxTypeAttribute.cs" />
+    <Compile Include="Behaviors\PlotBehavior.cs" />
+    <Compile Include="CustomControls\PropertyGrid.xaml.cs">
+      <DependentUpon>PropertyGrid.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="CustomControls\RoundedBox.xaml.cs">
+      <DependentUpon>RoundedBox.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="CustomControls\TreeViewForms\TreeViewForms.cs" />
+    <Compile Include="CustomControls\TreeViewForms\VirtualToggleButton.cs" />
+    <Compile Include="Extensions\ItemChanged.cs" />
+    <Compile Include="Extensions\ItemPropertyChangedEvent.cs" />
+    <Compile Include="Extensions\ItemPropertyChangedEvent1.cs" />
+    <Compile Include="Extensions\ObservableExtension.cs" />
+    <Compile Include="Extensions\ReactiveCommand.cs" />
+    <Compile Include="Extensions\WeakSubscription.cs" />
+    <Compile Include="ReflectionHelpers\ReflectionExtencions.cs" />
+    <Compile Include="Regions\RegionNames.cs" />
+    <Compile Include="Serialization\SerializationHelpers.cs" />
+    <Compile Include="ServiceMessage\EditMaterialMessage.cs" />
+    <Compile Include="ServiceMessage\GetFrequencies.cs" />
+    <Compile Include="ServiceMessage\ReportCalculationProgress.cs" />
+    <Compile Include="ServiceMessage\EventMessenger.cs" />
+    <Compile Include="ServiceMessage\FrequencyInformation.cs" />
+    <Compile Include="ServiceMessage\IEventMessager.cs" />
+    <Compile Include="ServiceMessage\SendMaterial.cs" />
+    <Compile Include="ServiceMessage\SetFrequencyFromLayer.cs" />
+    <Compile Include="ValueConverters\IndexConverter.cs" />
+    <Compile Include="ValueConverters\MeterToMillimeterConverter.cs" />
+    <Compile Include="ViewModelFirst\ViewModelFirstHelpers.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Mathematics\Mathematics.csproj">
+      <Project>{bf987b5e-d19b-42b8-bed9-0e256f569928}</Project>
+      <Name>Mathematics</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="CustomControls\PropertyGrid.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="CustomControls\RoundedBox.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="CustomControls\TreeViewForms\TreeViewExpanderButton.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="CustomControls\TreeViewForms\WindowsFormStyle.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Styles\ListOrganizers.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="CustomControls\Images\shadow_b.png" />
+    <Resource Include="CustomControls\Images\shadow_bl.png" />
+    <Resource Include="CustomControls\Images\shadow_br.png" />
+    <Resource Include="CustomControls\Images\shadow_l.png" />
+    <Resource Include="CustomControls\Images\shadow_r.png" />
+    <Resource Include="CustomControls\Images\shadow_t.png" />
+    <Resource Include="CustomControls\Images\shadow_tl.png" />
+    <Resource Include="CustomControls\Images\shadow_tr.png" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
