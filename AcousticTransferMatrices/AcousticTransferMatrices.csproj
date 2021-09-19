@@ -125,10 +125,16 @@
       <Project>{B39BB8A0-DEDB-4558-AA4D-ECD268D94EEB}</Project>
       <Name>AcousticTransferMatrices.MaterialSelectionTree</Name>
     </ProjectReference>
+<<<<<<< HEAD
+<<<<<<< HEAD
     <ProjectReference Include="..\Mathematics\Mathematics.csproj">
       <Project>{BF987B5E-D19B-42B8-BED9-0E256F569928}</Project>
       <Name>Mathematics</Name>
     </ProjectReference>
+=======
+>>>>>>> d874e759d646c9803783075f04398eedcd7a2d51
+=======
+>>>>>>> d874e759d646c9803783075f04398eedcd7a2d51
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

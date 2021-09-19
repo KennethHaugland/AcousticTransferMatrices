@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 
 namespace Mathematics
 {
+<<<<<<< HEAD
+<<<<<<< HEAD
     public struct Vector<T>
     {
 
@@ -21,6 +23,16 @@ namespace Mathematics
         }
 
         public ref T this[int row] => ref Items[row];
+=======
+    public class Vector<T>
+    {
+
+>>>>>>> d874e759d646c9803783075f04398eedcd7a2d51
+=======
+    public class Vector<T>
+    {
+
+>>>>>>> d874e759d646c9803783075f04398eedcd7a2d51
         public static T[] ShiftArrayRight(T[] v)
         {
             var OverflowItem = v[v.Length - 1];
@@ -45,6 +57,8 @@ namespace Mathematics
             Array.Copy(v, v.Length - index, Items, 0, index);
             return Items;
         }
+<<<<<<< HEAD
+<<<<<<< HEAD
 
         public static Vector<T> operator +(Vector<T> a, Vector<T> b)
         {
@@ -229,5 +243,9 @@ namespace Mathematics
             return a;
         }
 
+=======
+>>>>>>> d874e759d646c9803783075f04398eedcd7a2d51
+=======
+>>>>>>> d874e759d646c9803783075f04398eedcd7a2d51
     }
 }
