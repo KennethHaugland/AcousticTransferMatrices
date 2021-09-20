@@ -13,14 +13,9 @@ using AcousticTransferMatrices.Calculation;
 using AcousticTransferMatrices.LayerSetup;
 using AcousticTransferMatrices.MaterialSelectionTree;
 using AcousticTransferMatrices.MaterialProperties;
-<<<<<<< HEAD
-<<<<<<< HEAD
 using Mathematics;
 using Mathematics.Acoustics;
-=======
->>>>>>> d874e759d646c9803783075f04398eedcd7a2d51
-=======
->>>>>>> d874e759d646c9803783075f04398eedcd7a2d51
+
 
 namespace AcousticTransferMatrices
 {
@@ -37,8 +32,6 @@ namespace AcousticTransferMatrices
 
         protected override void ConfigureModuleCatalog(IModuleCatalog moduleCatalog)
         {
-<<<<<<< HEAD
-<<<<<<< HEAD
 
             Vector<double> R_1_1_i = new double[] { 50, 57, 60, 60, 60 };
             Vector<double> R_1_3_i = new double[] { 20.4, 16.3, 17.7, 22.6, 22.4, 22.7, 24.8, 26.6, 28, 30.5, 31.8, 32.5, 33.4, 33, 31, 25.5 };
@@ -46,10 +39,6 @@ namespace AcousticTransferMatrices
             var x = R_1_3_i.Rw_13<double>();
             var y = R_1_1_i.Rw_11<double>();
 
-=======
->>>>>>> d874e759d646c9803783075f04398eedcd7a2d51
-=======
->>>>>>> d874e759d646c9803783075f04398eedcd7a2d51
             moduleCatalog.AddModule<FrequencyRangeModule>();          
             moduleCatalog.AddModule<MaterialSelectionTreeModule>();
             moduleCatalog.AddModule<MaterialPropertiesModule>();
