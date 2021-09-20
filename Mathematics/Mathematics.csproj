@@ -50,13 +50,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-<<<<<<< HEAD
-<<<<<<< HEAD
     <Compile Include="Acoustics\AcousticExtensions.cs" />
-=======
->>>>>>> d874e759d646c9803783075f04398eedcd7a2d51
-=======
->>>>>>> d874e759d646c9803783075f04398eedcd7a2d51
     <Compile Include="Acoustics\Octaveband.cs" />
     <Compile Include="Integration\GaussLegendreQuaderature.cs" />
     <Compile Include="Integration\QuaderatureItem.cs" />
