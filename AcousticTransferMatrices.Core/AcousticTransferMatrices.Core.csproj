@@ -91,6 +91,7 @@
     <Compile Include="Acoustics\LayerModel.cs" />
     <Compile Include="Acoustics\MatrixMaterials\Air.cs" />
     <Compile Include="Acoustics\MatrixMaterials\DelaneyBazely.cs" />
+    <Compile Include="Acoustics\MatrixMaterials\ThinWall.cs" />
     <Compile Include="AttatchedProperties\BindableSelectedItemBehavior.cs" />
     <Compile Include="AttatchedProperties\EnumItemsSource.cs" />
     <Compile Include="AttatchedProperties\MouseDoubleClick.cs" />

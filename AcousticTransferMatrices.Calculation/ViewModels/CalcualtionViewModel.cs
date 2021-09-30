@@ -37,7 +37,7 @@ namespace AcousticTransferMatrices.Calculation.ViewModels
             {
                 if (e.PropertyName == "SelectedCalcualtion")
                 {
-                    if (SelectedCalcualtion != null)
+                    if (SelectedCalcualtion != null && SelectedCalcualtion.Results != null)
                     {
                         RebindPlot(SelectedCalcualtion);
                         EM.Publish(new FrequencyFromLayer() { SetItem = true, Calculate = false, SelectedLayer = SelectedCalcualtion });

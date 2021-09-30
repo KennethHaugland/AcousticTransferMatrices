@@ -65,6 +65,9 @@ namespace AcousticTransferMatrices.MaterialSelectionTree.ViewModels
 
         void ExecuteAddItemCommand()
         {
+            if (SelectedItem == null)
+                return;
+
             if (SelectedItem.IsMaterial)
             {
                 LayerBaseClass item = (LayerBaseClass)Activator.CreateInstance(SelectedItem.MaterialType);

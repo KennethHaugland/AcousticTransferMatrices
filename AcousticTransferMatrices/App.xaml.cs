@@ -64,7 +64,7 @@ namespace AcousticTransferMatrices
             {
                 FrontLayer = new Air(),
                 BackLayer = new Air(),
-                Transmission = TransmissionTypes.AbsorptionHardWall
+                Transmission = TransmissionTypes.TransmissionLossMatrix
             });
 
             _ = containerRegistry.RegisterInstance(Current.Resources);

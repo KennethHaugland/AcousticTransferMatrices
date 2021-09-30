@@ -15,8 +15,8 @@ namespace AcousticTransferMatrices.Core.Acoustics
         {
             Matrix<Complex> res = new Matrix<Complex>(2, 2);
             res[0, 0] = Complex.Cosh(G * d * Complex.Cos(Theta));
-            res[0, 1] = Z * Complex.Sinh(G * d * Complex.Cos(Theta)) / Complex.Cos(Theta);
-            res[1, 0] = Complex.Sinh(G * d * Complex.Cos(Theta)) * Complex.Cos(Theta) / Z;
+            res[0, 1] = Z * Complex.Sinh(G * d * Complex.Cos(Theta)) ;
+            res[1, 0] = Complex.Sinh(G * d * Complex.Cos(Theta))  / Z;
             res[1, 1] = Complex.Cosh(G * d * Complex.Cos(Theta));
             return res;
         }

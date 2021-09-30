@@ -65,12 +65,12 @@ namespace AcousticTransferMatrices.Core.Acoustics.Configurations
         private Complex Psi_in { get; set; }
         private Complex Z_out(double freq, Complex Theta)
         {
-            return BackLayer.Z(freq, Theta_Out);
+            return BackLayer.Z(freq, Theta);
         }
 
         private Complex G_out(double freq, Complex Theta)
         {
-            return BackLayer.G(freq, Theta_Out);
+            return BackLayer.G(freq, Theta);
         }
 
         private Complex Theta_Out { get; set; }
@@ -93,7 +93,9 @@ namespace AcousticTransferMatrices.Core.Acoustics.Configurations
 
             if (Transmission == TransmissionTypes.TransmissionLossMatrix)
             {
-                result = Z_in(freq, Theta_in)  /Z_out(freq, Theta_Out) * Complex.Pow(Complex.Abs(T[0, 0] + Complex.Cos(Theta_in) / Z_in(freq, Theta_in) * T[0,1] + Z_out(freq, Theta_Out)  * T[1,0] + Z_out(freq, Theta_Out)  / Z_in(freq, Theta_in)  * T[1,1]) / 2, 2);
+                Complex YN = Z_out(freq, Theta_Out);
+                Complex Y1 = Z_in(freq, Theta_in); 
+                result = Y1 / YN * Complex.Pow(Complex.Abs((T[0, 0] + T[0, 1] / Y1 + YN * T[1, 0] + T[1, 1] * YN / Y1) / 2), 2);
             }
             else if (Transmission == TransmissionTypes.IntersectionLossMatrix)
             {
@@ -108,14 +110,14 @@ namespace AcousticTransferMatrices.Core.Acoustics.Configurations
             {
                 Matrix<Complex> res = T * HardWall;
                 Complex Z = res[0, 0] / res[1, 0];
-                result = 1 - Math.Pow(Complex.Abs((Z - Z_in(freq, Theta_in)) / (Z  + Z_in(freq, Theta_in))), 2);
+                result = 1 - Math.Pow(Complex.Abs(( Z- Z_in(freq, Theta_in)) / (Z+ Z_in(freq, Theta_in))), 2);
             }
             else if (Transmission == TransmissionTypes.AbsorptionAnechoic)
             {
                 Matrix<Complex> res = T * Anecohic;
                 Complex Z = res[0,0] / res[1,0];
 
-                result = 1 - Math.Pow(Complex.Abs((Z / Z_in(freq, Theta_in) - 1) / (Z  / Z_in(freq, Theta_in) + 1)), 2);
+                result = 1 - Math.Pow(Complex.Abs((Z - Z_in(freq, Theta_in)) / (Z  + Z_in(freq, Theta_in))), 2);
             }
             else if (Transmission == TransmissionTypes.AbsorbtionCustom)
             {
@@ -135,7 +137,7 @@ namespace AcousticTransferMatrices.Core.Acoustics.Configurations
         private Matrix<Complex> Custom(double freq)
         {
             Matrix<Complex> custom = new Matrix<Complex>(2, 1);
-            custom[0, 0] = Z_out(freq, Theta_Out) / Complex.Cos(Theta_Out);
+            custom[0, 0] = Z_out(freq, Theta_Out);
             custom[1, 0] = 1;
             return custom;
         }

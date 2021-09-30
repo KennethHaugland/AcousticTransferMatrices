@@ -88,8 +88,7 @@ namespace AcousticTransferMatrices.Core.Acoustics.Configurations
                     var a1 = 0.5 * (Math.Cos(a) - Math.Cos(b));
                     var b1 = -2 * Math.Sin(a - b) * Math.Sin(a + b);
 
-                    res.Add(sum * dx * (0.5 * (Math.Cos(2 * Angles.First()) - Math.Cos(2 * Angles.Last()))));
-
+                    res.Add(sum * dx / (0.5 * (Math.Cos(2 * Angles.First()) - Math.Cos(2 * Angles.Last()))));
                 }
             }
             else
@@ -98,7 +97,7 @@ namespace AcousticTransferMatrices.Core.Acoustics.Configurations
                 {
                     for (int i = 0; i < AngleResult.Count; i++)
                     {
-                        res.Add(10 * Math.Log10(Complex.Abs(AngleResult[i])));
+                        res.Add(10 * Math.Log10(AngleResult[i].Real));
                     }
                 }
                 else if (Integration == IntegrationType.GaussLagrangeQuadrature)
@@ -108,16 +107,16 @@ namespace AcousticTransferMatrices.Core.Acoustics.Configurations
                     {
                         sum += Math.Sin(2 * Angles[i]) / Complex.Abs(AngleResult[i]) * QuaderatureItemsAndWeights[i].Weight;
                     }
-                    res.Add(-10 * Math.Log10(sum / (0.5 * (Math.Cos(2 * Angles.First()) - Math.Cos(2 * Angles.Last())))));
+                    res.Add(-10 * Math.Log10(sum  / (0.5 * (Math.Cos(2 * Angles.First()) - Math.Cos(2 * Angles.Last())))));
                 }
                 else if (Integration == IntegrationType.SimpleSum)
                 {
                     double sum = 0;
                     for (int i = 0; i < AngleResult.Count; i++)
                     {
-                        sum += Math.Sin(2 * Angles[i]) / Complex.Abs(AngleResult[i]);
+                        sum += Math.Sin(2 * Angles[i]) *dx / Complex.Abs(AngleResult[i]);
                     }
-                    res.Add(-10 * Math.Log10(sum * dx / (0.5 * (Math.Cos(2 * Angles.First()) - Math.Cos(2 * Angles.Last())))));
+                    res.Add(-10 * Math.Log10(sum * dx  / (0.5 * (Math.Cos(2 * Angles.First()) - Math.Cos(2 * Angles.Last())))));
                 }
             }
             return res;

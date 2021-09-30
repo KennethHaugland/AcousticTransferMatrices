@@ -18,6 +18,7 @@ namespace AcousticTransferMatrices.Core.Acoustics.MatrixMaterials
     {
         public Air()
         {
+            Thickness = 1;
             Name = "Air";
             Group = "Gas";
         }
@@ -35,7 +36,7 @@ namespace AcousticTransferMatrices.Core.Acoustics.MatrixMaterials
         [ShowPropertyGrid(), DisplayName("Weight of medium (kg/m^3)"), Category("1"), PropertyOrder(2)]
         public double rho0 { get; set; } = 1.21;
 
-
+        [ShowPropertyGrid(), DisplayName("Damping"), Category("1"), PropertyOrder(3)]
         double damping { get; set; } = 0;
         public Complex Theta { get; set; }
 
