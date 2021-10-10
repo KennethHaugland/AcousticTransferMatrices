@@ -140,6 +140,10 @@
       <Project>{B39BB8A0-DEDB-4558-AA4D-ECD268D94EEB}</Project>
       <Name>AcousticTransferMatrices.MaterialSelectionTree</Name>
     </ProjectReference>
+    <ProjectReference Include="..\ExcelOpenXMLInterface\ExcelOpenXMLInterface.csproj">
+      <Project>{2013712F-8A0A-4027-AE2E-2DE4C4012E96}</Project>
+      <Name>ExcelOpenXMLInterface</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Mathematics\Mathematics.csproj">
       <Project>{BF987B5E-D19B-42B8-BED9-0E256F569928}</Project>
       <Name>Mathematics</Name>

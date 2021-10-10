@@ -15,7 +15,7 @@ using AcousticTransferMatrices.MaterialSelectionTree;
 using AcousticTransferMatrices.MaterialProperties;
 using Mathematics;
 using Mathematics.Acoustics;
-
+using ExcelOpenXMLInterface;
 
 namespace AcousticTransferMatrices
 {
@@ -33,11 +33,14 @@ namespace AcousticTransferMatrices
         protected override void ConfigureModuleCatalog(IModuleCatalog moduleCatalog)
         {
 
-            Vector<double> R_1_1_i = new double[] { 50, 57, 60, 60, 60 };
-            Vector<double> R_1_3_i = new double[] { 20.4, 16.3, 17.7, 22.6, 22.4, 22.7, 24.8, 26.6, 28, 30.5, 31.8, 32.5, 33.4, 33, 31, 25.5 };
+            //Vector<double> R_1_1_i = new double[] { 50, 57, 60, 60, 60 };
+            //Vector<double> R_1_3_i = new double[] { 20.4, 16.3, 17.7, 22.6, 22.4, 22.7, 24.8, 26.6, 28, 30.5, 31.8, 32.5, 33.4, 33, 31, 25.5 };
 
-            var x = R_1_3_i.Rw_13<double>();
-            var y = R_1_1_i.Rw_11<double>();
+            //var x = R_1_3_i.Rw_13<double>();
+            //var y = R_1_1_i.Rw_11<double>();
+
+            //var t = ExcelFunctions.GetAllExcelSheetsAsStringArray(@"C:\\Users\\kenne\\Documents\\Bok1.xlsx");
+
 
             moduleCatalog.AddModule<FrequencyRangeModule>();          
             moduleCatalog.AddModule<MaterialSelectionTreeModule>();
