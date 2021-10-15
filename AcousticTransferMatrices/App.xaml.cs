@@ -16,6 +16,7 @@ using AcousticTransferMatrices.MaterialProperties;
 using Mathematics;
 using Mathematics.Acoustics;
 using ExcelOpenXMLInterface;
+using System.Data;
 
 namespace AcousticTransferMatrices
 {
@@ -39,8 +40,25 @@ namespace AcousticTransferMatrices
             //var x = R_1_3_i.Rw_13<double>();
             //var y = R_1_1_i.Rw_11<double>();
 
-            //var t = ExcelFunctions.GetAllExcelSheetsAsStringArray(@"C:\\Users\\kenne\\Documents\\Bok1.xlsx");
+            DataTable table1 = new DataTable("patients");
+            table1.Columns.Add("name", typeof(string));
+            table1.Columns.Add("id", typeof(int));
+            table1.Rows.Add("sam", 1);
+            table1.Rows.Add("mark", 2);
 
+            DataTable table2 = new DataTable("medications");
+            table2.Columns.Add("id",typeof(int));
+            table2.Columns.Add("medication",typeof(string));
+            table2.Rows.Add(1, "atenolol");
+            table2.Rows.Add(2, "amoxicillin");
+
+            // Create a DataSet and put both tables in it.
+            DataSet set = new DataSet("office");
+            set.Tables.Add(table1);
+            set.Tables.Add(table2);
+
+            ExcelFunctions.GenerateExcelRapport(set);
+            ExcelFunctions.GenerateExcelRapport(table1, "test2");
 
             moduleCatalog.AddModule<FrequencyRangeModule>();          
             moduleCatalog.AddModule<MaterialSelectionTreeModule>();
